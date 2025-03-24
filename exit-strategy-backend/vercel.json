@@ -1,9 +1,16 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "api/send-rescue.py", "use": "@vercel/python" }
-    ],
-    "routes": [
-      { "src": "/send-rescue", "dest": "api/send-rescue.py" }
-    ]
+  "version": 2,
+  "builds": [
+    { "src": "api/send-rescue.py", "use": "@vercel/python" },
+    { "src": "app.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/send-rescue", "dest": "api/send-rescue.py" },
+    { "src": "/templates", "dest": "app.py" },
+    { "src": "/verify-subscription", "dest": "app.py" },
+    { "src": "/health", "dest": "app.py" }
+  ],
+  "env": {
+    "FLASK_ENV": "production"
   }
+}

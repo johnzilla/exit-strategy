@@ -15,6 +15,31 @@ TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN')
 TWILIO_PHONE_NUMBER = os.environ.get('TWILIO_PHONE_NUMBER')
 API_KEY = os.environ.get('API_KEY')
 
+# Default templates for free tier
+DEFAULT_TEMPLATES = [
+    {
+        "id": "template_1",
+        "title": "Emergency Call",
+        "message": "I need you to come home right away. It's an emergency.",
+        "isPremium": False,
+        "isCustom": False
+    },
+    {
+        "id": "template_2",
+        "title": "Work Emergency",
+        "message": "Your boss called. There's an urgent issue at work that needs your attention immediately.",
+        "isPremium": False,
+        "isCustom": False
+    },
+    {
+        "id": "template_3",
+        "title": "Family Emergency",
+        "message": "Please call me as soon as possible. There's a family emergency.",
+        "isPremium": False,
+        "isCustom": False
+    }
+]
+
 # Validate API key
 def validate_api_key(request):
     auth_header = request.headers.get('Authorization')
@@ -69,8 +94,8 @@ def make_call(to_number, message, from_number=TWILIO_PHONE_NUMBER):
     except Exception as e:
         return False, str(e)
 
-# Vercel serverless function handler
-def handler(request):
+@app.route('/send-rescue', methods=['POST'])
+def send_rescue():
     # Validate API key
     if not validate_api_key(request):
         return jsonify({
@@ -133,7 +158,49 @@ def handler(request):
             'message': f'Failed to send rescue: {result}'
         }), 500
 
-# For Vercel serverless functions
-@app.route('/', methods=['POST'])
-def send_rescue():
-    return handler(request)
+@app.route('/templates', methods=['GET'])
+def get_templates():
+    # Validate API key
+    if not validate_api_key(request):
+        return jsonify({
+            'success': False,
+            'message': 'Unauthorized'
+        }), 401
+    
+    # In a real implementation, we would fetch templates from a database
+    # For this demo, we'll just return the default templates
+    return jsonify({
+        'success': True,
+        'templates': DEFAULT_TEMPLATES
+    })
+
+@app.route('/verify-subscription', methods=['POST'])
+def verify_subscription():
+    # Validate API key
+    if not validate_api_key(request):
+        return jsonify({
+            'success': False,
+            'message': 'Unauthorized'
+        }), 401
+    
+    # Get request data
+    data = request.get_json()
+    
+    # In a real implementation, we would verify the subscription with a payment provider
+    # For this demo, we'll just return success
+    return jsonify({
+        'success': True,
+        'is_premium': data.get('subscription_id') == 'exit_strategy_premium',
+        'expiration_date': (datetime.now() + timedelta(days=30)).isoformat()
+    })
+
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({
+        'status': 'healthy',
+        'timestamp': datetime.now().isoformat()
+    })
+
+# For local development
+if __name__ == '__main__':
+    app.run(debug=True)

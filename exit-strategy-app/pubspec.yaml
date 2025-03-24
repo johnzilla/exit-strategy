@@ -1,0 +1,41 @@
+name: exit_strategy
+description: An app that helps users escape awkward social situations by triggering real "rescue" texts or calls.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  http: ^0.13.5
+  provider: ^6.0.5
+  shared_preferences: ^2.0.15
+  in_app_purchase: ^3.1.5
+  url_launcher: ^6.1.7
+  flutter_dotenv: ^5.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+  mockito: ^5.3.2
+  build_runner: ^2.3.3
+
+flutter:
+  uses-material-design: true
+  
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/
+    - .env
+  
+  # To add custom fonts to your application, add a fonts section, like this:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
