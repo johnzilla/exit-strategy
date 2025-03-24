@@ -37,3 +37,17 @@ This file tracks the project's current status, including recent changes, current
 - Need to implement proper security for Twilio credentials
 - Need to define unit testing approach for both frontend and backend
 - Need to set up CI pipeline for automated testing and deployment
+
+## Checkpoint (2025-03-23 22:40:00)
+
+### Current Status
+- Created HTML/JS PWA frontend in exit-strategy-web folder with all necessary files
+- Updated Memory Bank to reflect the switch from Flutter to HTML/JS PWA
+- Frontend is ready but not yet connected to the backend
+
+### Next Steps When Resuming
+1. Create proper icon files in the icons/ directory
+2. Connect the frontend to the backend API
+3. Test the integration between frontend and backend
+4. Implement proper error handling for API communication
+5. Ensure security of API keys and credentials
