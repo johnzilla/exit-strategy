@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4285f4">
+    <title>Exit Strategy</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/favicon.ico">
+    <meta name="description" content="Get rescue calls and texts to escape awkward situations">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Exit Strategy</h1>
+            <p>Your social escape plan</p>
+        </header>
+
+        <main>
+            <section id="setup-section" class="card">
+                <h2>Setup</h2>
+                <p>Configure your rescue contact information:</p>
+                <form id="setup-form">
+                    <div class="form-group">
+                        <label for="contact-name">Contact Name (e.g., "Mom")</label>
+                        <input type="text" id="contact-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone-number">Your Phone Number</label>
+                        <input type="tel" id="phone-number" placeholder="+1234567890" required>
+                    </div>
+                    <button type="submit" class="btn primary">Save Contact</button>
+                </form>
+            </section>
+
+            <section id="rescue-section" class="card">
+                <h2>Rescue Me</h2>
+                <div class="template-selector">
+                    <h3>Select a Template</h3>
+                    <div class="template-options">
+                        <div class="template-option">
+                            <input type="radio" id="template1" name="template" value="emergency" checked>
+                            <label for="template1">Emergency (Call me ASAP!)</label>
+                        </div>
+                        <div class="template-option">
+                            <input type="radio" id="template2" name="template" value="ride">
+                            <label for="template2">Need a Ride (Can you pick me up?)</label>
+                        </div>
+                        <div class="template-option">
+                            <input type="radio" id="template3" name="template" value="reminder">
+                            <label for="template3">Reminder (Don't forget our plans!)</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="rescue-actions">
+                    <button id="trigger-rescue" class="btn primary large">Trigger Rescue Now</button>
+                </div>
+            </section>
+
+            <section id="premium-section" class="card">
+                <h2>Premium Features</h2>
+                <p>Upgrade to premium for custom messages and delayed rescues.</p>
+                <p class="price">$10/month</p>
+                <button id="upgrade-btn" class="btn secondary">Upgrade to Premium</button>
+            </section>
+        </main>
+
+        <div id="notification" class="notification hidden">
+            <p id="notification-message"></p>
+            <button id="notification-close" class="btn-close">×</button>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Register service worker for PWA
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(reg => console.log('Service Worker registered', reg))
+                .catch(err => console.log('Service Worker registration failed', err));
+        }
+    </script>
+</body>
+</html>

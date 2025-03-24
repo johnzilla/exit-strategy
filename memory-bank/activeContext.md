@@ -2,6 +2,7 @@
 
 This file tracks the project's current status, including recent changes, current goals, and open questions.
 2025-03-23 20:36:00 - Initial creation.
+2025-03-23 22:38:00 - Updated to reflect switch from Flutter to HTML/JS PWA frontend.
 
 ## Current Focus
 
@@ -14,10 +15,15 @@ This file tracks the project's current status, including recent changes, current
 
 - Created detailed implementation plan with focus on testing, security, and stability
 - Created Memory Bank to track project progress
-- Implemented Flutter UI screens (home.dart and setup.dart)
-- Created service classes (subscription_service.dart, rescue_service.dart, settings_service.dart)
-- Implemented data models (rescue_template.dart, user_settings.dart)
-- Set up state management with Provider pattern
+- Switched from Flutter to a simple HTML/JS PWA frontend due to Flutter setup issues
+- Created HTML/JS PWA frontend with the following files:
+  - index.html - Main HTML file with UI components
+  - styles.css - CSS styling for the application
+  - app.js - Main JavaScript file for application logic
+  - api.js - API integration with the backend
+  - config.js - Configuration settings
+  - manifest.json - PWA manifest for installable web app
+  - service-worker.js - Service worker for offline functionality
 - Added environment configuration with .env files
 - Created comprehensive documentation in README.md files for both frontend and backend
 - Created main project README.md with installation and usage instructions

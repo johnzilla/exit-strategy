@@ -3,18 +3,19 @@
 This file documents recurring patterns and standards used in the project.
 It is optional, but recommended to be updated as the project evolves.
 2025-03-23 20:36:00 - Initial creation.
+2025-03-23 22:38:00 - Updated frontend patterns from Flutter to HTML/JS PWA.
 
 ## Coding Patterns
 
-### Frontend (Flutter)
+### Frontend (HTML/JS PWA)
 
-- **State Management**: Use Provider pattern for state management
-- **API Communication**: Use http package for API calls
+- **State Management**: Use localStorage for persistent state
+- **API Communication**: Use Fetch API for backend communication
 - **Error Handling**: Implement try-catch blocks with user-friendly error messages
-- **Code Organization**: 
-  - Separate UI (screens, widgets) from business logic
-  - Use services for API communication
-  - Use models for data representation
+- **Code Organization**:
+  - Separate concerns (HTML, CSS, JS)
+  - Modular JavaScript files (app.js, api.js, config.js)
+  - Use classes for encapsulation
 
 ### Backend (Python)
 

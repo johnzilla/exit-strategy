@@ -35,16 +35,30 @@ This file records architectural and implementation decisions using a list format
 - Vercel: Configure vercel.json for serverless deployment
 
 
+## Decision: Frontend Technology Change
+2025-03-23 22:38:00 - Made this decision.
+
+**Decision**: Switch from Flutter to a simple HTML/JS Progressive Web App (PWA) frontend.
+
+**Rationale**: Encountered issues with Flutter setup and configuration. A simple HTML/JS PWA provides a more straightforward implementation with fewer dependencies and simpler deployment.
+
+**Implementation Details**:
+- Created a basic HTML/JS PWA structure in the exit-strategy-web directory
+- Implemented core functionality using vanilla JavaScript
+- Added PWA features (manifest.json, service-worker.js)
+- Organized code with separation of concerns (app.js, api.js, config.js)
+- Designed a responsive UI with CSS
+
 ## Decision: Implementation Order
 
-**Decision**: Start with the Flutter frontend implementation before the Python backend.
+**Decision**: Start with the frontend implementation before connecting to the Python backend.
 
 **Rationale**: Frontend-first approach allows for early visualization of the app's UI and user experience, which can help guide backend development.
 
 **Implementation Details**:
-- Begin with setting up the Flutter project structure and dependencies
+- Begin with setting up the HTML/JS project structure
 - Implement the UI screens and navigation
-- Add mock API services that will later connect to the real backend
+- Add API integration that will connect to the real backend
 
 ## Decision: State Management Approach
 
