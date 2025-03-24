@@ -19,7 +19,8 @@ This file tracks the project's current status, including recent changes, current
 - Implemented data models (rescue_template.dart, user_settings.dart)
 - Set up state management with Provider pattern
 - Added environment configuration with .env files
-- Created comprehensive documentation in README.md
+- Created comprehensive documentation in README.md files for both frontend and backend
+- Created main project README.md with installation and usage instructions
 - Implemented Python Flask backend with Twilio integration
 - Created API endpoints for sending rescue messages
 - Set up Docker and Vercel deployment configurations

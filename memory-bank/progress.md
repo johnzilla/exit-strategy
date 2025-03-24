@@ -15,7 +15,8 @@ This file tracks the project's progress using a task list format.
 - Implemented service classes for subscription and rescue functionality
 - Created data models for rescue templates and user settings
 - Set up environment configuration with .env files
-- Added comprehensive documentation in README.md
+- Added comprehensive documentation in README.md files for both frontend and backend
+- Created main project README.md with installation and usage instructions
 - Implemented state management with Provider pattern
 - Implemented Python Flask backend structure
 - Set up Twilio integration in the backend
